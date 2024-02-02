@@ -1,0 +1,29 @@
+@import "./variable/variable.scss";
+
+body {
+  box-sizing: border-box;
+  margin: 0px;
+}
+
+@font-face {
+  font-family: $qmed;
+  src: url("./asset/Quicksandfont1/static/Quicksand-Medium.ttf");
+}
+@font-face {
+  font-family: $qbold;
+  src: url("./asset/Quicksandfont1/static/Quicksand-Bold.ttf");
+}
+
+.main {
+  box-sizing: border-box;
+  background-color: #eeeeee;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+// @import "./header/header.scss";
+
+@import "./body/body.scss";
+
+// @import "./footer/footer.scss";
