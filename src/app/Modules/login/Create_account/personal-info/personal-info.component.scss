@@ -1,0 +1,185 @@
+$qmed: Quickmed;
+$qbold: Quickbold;
+@font-face {
+  font-family: $qmed;
+  src: url("../../../../../assets/Quicksandfont1/static/Quicksand-Medium.ttf");
+}
+@font-face {
+  font-family: $qbold;
+  src: url("../../../../../assets/Quicksandfont1/static/Quicksand-Bold.ttf");
+}
+
+.body1 {
+  width: 976px;
+  height: 873px;
+  padding: 24px;
+  background-color: #ffffff;
+  margin-top: 24px;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+
+  .left {
+    width: 50%;
+    div {
+      width: 480px;
+      label {
+        display: block;
+        color: #666666;
+        font-size: 12px;
+        font-family: $qmed;
+      }
+      input[type="text"],
+      input[type="email"],
+      .portfoliourl {
+        margin-top: 12px;
+        width: 100%;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #666666;
+        font-family: $qmed;
+        font-size: 16px;
+        color: #222222;
+      }
+    }
+    .portfoliourl {
+      margin-top: 43px;
+    }
+    .lname {
+      margin-top: 40px;
+    }
+    .mail {
+      margin-top: 40px;
+    }
+    .phoneno {
+      font-family: $qmed;
+      font-size: 16px;
+      color: #222222;
+
+      .code::-webkit-outer-spin-button,
+      .code::-webkit-inner-spin-button,
+      .number::-webkit-outer-spin-button,
+      .number::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+      }
+
+      /* Firefox */
+      .code[type="number"],
+      .number[type="number"] {
+        -moz-appearance: textfield;
+      }
+
+      span {
+        margin-right: 8px;
+      }
+
+      .number {
+        margin-left: 12px;
+        width: 87px;
+        padding: 0px;
+      }
+
+      input {
+        margin-top: 12px;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #666666;
+        font-family: $qmed;
+        font-size: 16px;
+        color: #222222;
+      }
+      margin-top: 40px;
+      .code {
+        width: 18px;
+      }
+    }
+    .resume {
+      margin-top: 43px;
+      .lab {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        label {
+          font-family: $qmed;
+          font-size: 14px;
+          color: #1f7a54;
+        }
+      }
+      .hidden {
+        display: none;
+      }
+    }
+    .prefferedjob {
+      margin-top: 40px;
+      .checks {
+        .check1,
+        .check2,
+        .check3 {
+          display: flex;
+          justify-content: flex-start;
+          gap: 9px;
+          margin-top: 18px;
+        }
+        .check1 label,
+        .check2 label,
+        .check3 label {
+          font-family: $qmed;
+          font-size: 16px;
+          color: #222222;
+          opacity: 100%;
+        }
+      }
+    }
+    .referred {
+      margin-top: 40px;
+    }
+    .sendjobnotification {
+      margin-top: 33px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 8px;
+
+      p {
+        color: #222222;
+        font-size: 14px;
+        font-family: $qmed;
+      }
+    }
+  }
+  .right {
+    width: 50%;
+    .lab {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 150px;
+      height: 186px;
+      float: right;
+      p {
+        text-align: center;
+        margin-top: 8px;
+        font-size: 10px;
+        color: #757575;
+        font-family: $qmed;
+      }
+      label {
+        text-align: center;
+        font-family: $qmed;
+        font-size: 12px;
+        color: #1f7a54;
+        margin-top: 16px;
+      }
+      img {
+        padding: 9px 0;
+        width: 128px;
+        height: 124px;
+      }
+      .hidden {
+        display: none;
+      }
+    }
+  }
+}

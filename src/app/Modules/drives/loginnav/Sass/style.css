@@ -1,0 +1,204 @@
+body {
+  box-sizing: border-box;
+  margin: 0px;
+}
+
+@font-face {
+  font-family: Quickmed;
+  src: url("./asset/Quicksandfont1/static/Quicksand-Medium.ttf");
+}
+@font-face {
+  font-family: Quickbold;
+  src: url("./asset/Quicksandfont1/static/Quicksand-Bold.ttf");
+}
+.main {
+  box-sizing: border-box;
+  background-color: #eeeeee;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  width: 100%;
+  height: 56px;
+  background: url("./asset/header pattern image.png");
+}
+.header svg {
+  margin: 11px 0 0 24px;
+  height: 36px;
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+  background-color: #eeeeee;
+}
+.body .card {
+  margin-top: 50px;
+  width: 488px;
+  min-height: 550px;
+  background-color: #ffffff;
+  opacity: 1;
+  border-radius: 2px 2px 4px 4px;
+  border-top: 4px solid #3ac7ec;
+  padding: 20px 32px 0 32px;
+}
+.body .card .chead {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+  height: 30px;
+}
+.body .card .chead .left {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.body .card .chead .left svg {
+  height: 30px;
+  width: 23px;
+}
+.body .card .chead .right {
+  width: 100%;
+  text-align: center;
+  font-family: Quickmed;
+  font-size: 23px;
+}
+.body .card .cbody {
+  margin-top: 28px;
+}
+.body .card .cbody .up {
+  display: flex;
+  justify-content: flex-start;
+  gap: 24px;
+}
+.body .card .cbody .up .st,
+.body .card .cbody .up .nd {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.body .card .cbody .up .st label,
+.body .card .cbody .up .nd label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.body .card .cbody form .userpass,
+.body .card .cbody form .usermail {
+  margin-top: 56px;
+}
+.body .card .cbody form .userpass input,
+.body .card .cbody form .usermail input {
+  width: 100%;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid rgb(132, 129, 129);
+  padding: 2px;
+}
+.body .card .cbody form .userpass a,
+.body .card .cbody form .usermail a {
+  margin-top: 5px;
+  display: block;
+  text-align: right;
+  color: #1f7a54;
+  font-family: Quickmed;
+  font-size: 14px;
+  text-decoration: none;
+}
+.body .card .cbody form .stateinp {
+  /* border-bottom: 1px solid $gray1; */
+  /* padding: ; */
+  height: 45px;
+  margin-top: 25px;
+}
+.body .card .cbody form .stateinp .state {
+  width: 34px;
+  height: 20px;
+  font-family: Quickmed;
+  display: block;
+  border: 0 0 2px 0;
+  border-color: black;
+  color: #666666;
+}
+.body .card .cbody form .stateinp select {
+  color: #222222;
+  width: 100%;
+  height: 20px;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid rgb(132, 129, 129);
+  margin-top: 5px;
+}
+.body .card .cbody form .remindbox {
+  margin-top: 26px;
+}
+.body .card .cbody form .remindbox .inn {
+  display: flex;
+  justify-content: flex-start;
+}
+.body .card .cbody form .remindbox .inn p {
+  margin-top: 3px;
+  margin-left: 5px;
+  margin-bottom: 0px;
+}
+.body .card .cbody form .submitbtn {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 78px;
+}
+.body .card .cbody form .submitbtn input {
+  width: 216px;
+  height: 40px;
+  font-family: Quickmed;
+  border: 0;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2392156863);
+  background: #3fd28b 0% 0% no-repeat padding-box;
+}
+
+.footer {
+  margin-top: auto;
+}
+.footer .fone {
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 16px;
+  background: #eeeeee;
+}
+.footer .fone a {
+  font-family: Quickmed;
+  text-decoration: none;
+  color: #1f7a54;
+  font-size: 14px;
+}
+.footer .fone a:first-child {
+  border-right: 2px solid rgba(0, 0, 0, 0.1215686275);
+  padding-right: 8px;
+}
+.footer .fone a:last-child {
+  padding-left: 8px;
+}
+.footer .fsecond {
+  height: 40px;
+}
+.footer .fsecond .fsecinn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e0e1e1;
+}
+.footer .fsecond .fsecinn svg {
+  padding-right: 16px;
+}
+.footer .fsecond .fsecinn p {
+  border-left: 1px solid rgb(132, 129, 129);
+  padding-left: 16px;
+  color: #616161;
+  font-size: 12px;
+}
+.footer .fsecond .fsecinn p .special {
+  font-family: Quickbold;
+}/*# sourceMappingURL=style.css.map */

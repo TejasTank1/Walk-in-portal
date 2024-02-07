@@ -1,0 +1,504 @@
+<div
+  class="qualification"
+  *ngIf="qualificationinfo != undefined && profesqualificainfo != undefined"
+>
+  <div class="edu">
+    <div class="head">
+      <p>Educational Qualifications</p>
+
+      <div class="drop" (click)="togglequal()">
+        <svg
+          *ngIf="qualidrop"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          version="1.1"
+          width="17"
+          height="17"
+          viewBox="0 0 256 256"
+          xml:space="preserve"
+        >
+          <defs></defs>
+          <g
+            style="
+              stroke: none;
+              stroke-width: 0;
+              stroke-dasharray: none;
+              stroke-linecap: butt;
+              stroke-linejoin: miter;
+              stroke-miterlimit: 10;
+              fill: none;
+              fill-rule: nonzero;
+              opacity: 1;
+            "
+            transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)"
+          >
+            <path
+              d="M 90 24.25 c 0 -0.896 -0.342 -1.792 -1.025 -2.475 c -1.366 -1.367 -3.583 -1.367 -4.949 0 L 45 60.8 L 5.975 21.775 c -1.367 -1.367 -3.583 -1.367 -4.95 0 c -1.366 1.367 -1.366 3.583 0 4.95 l 41.5 41.5 c 1.366 1.367 3.583 1.367 4.949 0 l 41.5 -41.5 C 89.658 26.042 90 25.146 90 24.25 z"
+              style="
+                stroke: none;
+                stroke-width: 1;
+                stroke-dasharray: none;
+                stroke-linecap: butt;
+                stroke-linejoin: miter;
+                stroke-miterlimit: 10;
+                fill: #035130;
+                fill-rule: nonzero;
+                opacity: 1;
+              "
+              transform=" matrix(1 0 0 1 0 0) "
+              stroke-linecap="round"
+            />
+          </g>
+        </svg>
+
+        <svg
+          *ngIf="!qualidrop"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          version="1.1"
+          width="17"
+          height="17"
+          viewBox="0 0 256 256"
+          xml:space="preserve"
+        >
+          <defs></defs>
+          <g
+            style="
+              stroke: none;
+              stroke-width: 0;
+              stroke-dasharray: none;
+              stroke-linecap: butt;
+              stroke-linejoin: miter;
+              stroke-miterlimit: 10;
+              fill: none;
+              fill-rule: nonzero;
+              opacity: 1;
+            "
+            transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)"
+          >
+            <path
+              d="M 90 65.75 c 0 0.896 -0.342 1.792 -1.025 2.475 c -1.366 1.367 -3.583 1.367 -4.949 0 L 45 29.2 L 5.975 68.225 c -1.367 1.367 -3.583 1.367 -4.95 0 c -1.366 -1.367 -1.366 -3.583 0 -4.95 l 41.5 -41.5 c 1.366 -1.367 3.583 -1.367 4.949 0 l 41.5 41.5 C 89.658 63.958 90 64.854 90 65.75 z"
+              style="
+                stroke: none;
+                stroke-width: 1;
+                stroke-dasharray: none;
+                stroke-linecap: butt;
+                stroke-linejoin: miter;
+                stroke-miterlimit: 10;
+                fill: #035130;
+                fill-rule: nonzero;
+                opacity: 1;
+              "
+              transform=" matrix(1 0 0 1 0 0) "
+              stroke-linecap="round"
+            />
+          </g>
+        </svg>
+      </div>
+      
+    </div>
+    <form class="body1" [formGroup]="qualificationinfo" [hidden]="qualidrop">
+      <div class="aggregateper">
+        <label for="">Aggregate Percentage*</label>
+        <input type="number" formControlName="Aggrigate_per" />
+      </div>
+
+      <div class="yearofpass">
+        <label for="">Year of Passing*</label>
+        <select name="" id="" formControlName="yearpass">
+          <option value="2021" selected>2021</option>
+          <option value="2022">2022</option>
+          <option value="2023">2023</option>
+          <option value="2024">2024</option>
+        </select>
+      </div>
+
+      <div class="qust">
+        <div class="qualification1">
+          <label for="">Qualification*</label>
+          <select name="" id="" formControlName="qualification">
+            <option [ngValue]="null">Select Country</option>
+            <option
+              *ngFor="
+                let ele of [
+                  'Bachelor in Technology (B.Tech)',
+                  'Bachelor of science (B.sc.)'
+                ]
+              "
+            >
+              {{ ele }}
+            </option>
+          </select>
+        </div>
+        <div class="stream">
+          <label for="">Stream*</label>
+          <select name="" id="" formControlName="stream">
+            <option
+              *ngFor="
+                let ele of ['Information Technology', 'Computer engineering']
+              "
+            >
+              {{ ele }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="coth">
+        <div class="college">
+          <label for="">College*</label>
+          <select name="" id="" formControlName="college">
+            <option
+              *ngFor="
+                let ele of [
+                  'Pune Institute of Technology (PIT)',
+                  'Birla Vishvakarma Mahavidyalaya',
+                  'G.H patel'
+                ]
+              "
+            >
+              {{ ele }}
+            </option>
+          </select>
+        </div>
+        <div class="Refered">
+          <label for="">If others, please enter your college name</label>
+          <input
+            type="text"
+            class="ref"
+            name="otherclg"
+            formControlName="otherclg"
+          />
+        </div>
+      </div>
+
+      <div class="coloca">
+        <label for="">Where is your college located?*</label>
+        <input type="text" formControlName="clgloca" />
+      </div>
+    </form>
+  </div>
+  <div class="profes">
+    <div class="head">
+      <p>Professional Qualifications</p>
+      <div class="drop" (click)="toggleprofes()">
+        <svg
+          *ngIf="profdrop"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          version="1.1"
+          width="17"
+          height="17"
+          viewBox="0 0 256 256"
+          xml:space="preserve"
+        >
+          <defs></defs>
+          <g
+            style="
+              stroke: none;
+              stroke-width: 0;
+              stroke-dasharray: none;
+              stroke-linecap: butt;
+              stroke-linejoin: miter;
+              stroke-miterlimit: 10;
+              fill: none;
+              fill-rule: nonzero;
+              opacity: 1;
+            "
+            transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)"
+          >
+            <path
+              d="M 90 24.25 c 0 -0.896 -0.342 -1.792 -1.025 -2.475 c -1.366 -1.367 -3.583 -1.367 -4.949 0 L 45 60.8 L 5.975 21.775 c -1.367 -1.367 -3.583 -1.367 -4.95 0 c -1.366 1.367 -1.366 3.583 0 4.95 l 41.5 41.5 c 1.366 1.367 3.583 1.367 4.949 0 l 41.5 -41.5 C 89.658 26.042 90 25.146 90 24.25 z"
+              style="
+                stroke: none;
+                stroke-width: 1;
+                stroke-dasharray: none;
+                stroke-linecap: butt;
+                stroke-linejoin: miter;
+                stroke-miterlimit: 10;
+                fill: #035130;
+                fill-rule: nonzero;
+                opacity: 1;
+              "
+              transform=" matrix(1 0 0 1 0 0) "
+              stroke-linecap="round"
+            />
+          </g>
+        </svg>
+
+        <svg
+          *ngIf="!profdrop"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          version="1.1"
+          width="17"
+          height="17"
+          viewBox="0 0 256 256"
+          xml:space="preserve"
+        >
+          <defs></defs>
+          <g
+            style="
+              stroke: none;
+              stroke-width: 0;
+              stroke-dasharray: none;
+              stroke-linecap: butt;
+              stroke-linejoin: miter;
+              stroke-miterlimit: 10;
+              fill: none;
+              fill-rule: nonzero;
+              opacity: 1;
+            "
+            transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)"
+          >
+            <path
+              d="M 90 65.75 c 0 0.896 -0.342 1.792 -1.025 2.475 c -1.366 1.367 -3.583 1.367 -4.949 0 L 45 29.2 L 5.975 68.225 c -1.367 1.367 -3.583 1.367 -4.95 0 c -1.366 -1.367 -1.366 -3.583 0 -4.95 l 41.5 -41.5 c 1.366 -1.367 3.583 -1.367 4.949 0 l 41.5 41.5 C 89.658 63.958 90 64.854 90 65.75 z"
+              style="
+                stroke: none;
+                stroke-width: 1;
+                stroke-dasharray: none;
+                stroke-linecap: butt;
+                stroke-linejoin: miter;
+                stroke-miterlimit: 10;
+                fill: #035130;
+                fill-rule: nonzero;
+                opacity: 1;
+              "
+              transform=" matrix(1 0 0 1 0 0) "
+              stroke-linecap="round"
+            />
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <form class="freshexp" [hidden]="profdrop">
+      <div class="dd">
+        <label for="type">Applicant Type*</label>
+        <div class="freshexp1">
+          <div class="fresh">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#1F7A54"
+            >
+              <path d="M0 0h24v24H0z" fill="none" />
+              <path
+                d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+              />
+            </svg>
+            <label for="">Fresher</label>
+          </div>
+          <div class="exp">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#1F7A54"
+            >
+              <path d="M0 0h24v24H0z" fill="none" />
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+              />
+            </svg>
+            <label for="">Experienced</label>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <form [formGroup]="profesqualificainfo" class="info" [hidden]="profdrop">
+      <div class="yearofexp">
+        <label for="">Years of Experience*</label>
+        <input type="number" formControlName="year_of_exp" />
+      </div>
+
+      <div class="currentctc">
+        <label for="">Current CTC* (In Rupees)</label>
+        <input type="number" formControlName="currctc" />
+      </div>
+
+      <div class="expectedctc">
+        <label for="">Expected CTC* (In Rupees)</label>
+        <input type="number" formControlName="expectctc" />
+      </div>
+
+      <div class="techexp">
+        <label for="">Select All The Technologies You Expertise In*</label>
+        <div class="radios">
+          <div
+            class="r1"
+            *ngFor="
+              let ele of [
+                'Javascript',
+                'Angular JS',
+                'React',
+                'Node JS',
+                'Others'
+              ]
+            "
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#1F7A54"
+            >
+              <path d="M0 0h24v24H0z" fill="none" />
+              <path
+                d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+              />
+            </svg>
+            <label for="">{{ ele }}</label>
+          </div>
+        </div>
+        <div class="other">
+          <label for="">If others, please mention</label>
+          <input type="text" />
+        </div>
+      </div>
+
+      <div class="techfam">
+        <label for="">Select All The Technologies You Expertise In*</label>
+        <div class="radios">
+          <div
+            class="r1"
+            *ngFor="
+              let ele of [
+                'Javascript',
+                'Angular JS',
+                'React',
+                'Node JS',
+                'Others'
+              ]
+            "
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#1F7A54"
+            >
+              <path d="M0 0h24v24H0z" fill="none" />
+              <path
+                d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+              />
+            </svg>
+            <label for="">{{ ele }}</label>
+          </div>
+        </div>
+        <div class="other">
+          <label for="">If others, please mention</label>
+          <input type="text" />
+        </div>
+      </div>
+
+      <div class="notoceperiod">
+        <div class="dd">
+          <label for="type"
+            >Have You Appeared For Any Test By Zeus in the past 12
+            months?*</label
+          >
+          <div class="freshexp1">
+            <div class="fresh">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 0 24 24"
+                width="24px"
+                fill="#1F7A54"
+              >
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+                />
+              </svg>
+              <label for="">Yes</label>
+            </div>
+            <div class="exp">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 0 24 24"
+                width="24px"
+                fill="#1F7A54"
+              >
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+                />
+              </svg>
+              <label for="">No</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="noticedetail">
+        <div class="end">
+          <label for="">If Yes, when will your notice period end?*</label>
+          <input type="date" formControlName="end_of_notice" />
+        </div>
+        <div class="duration">
+          <label for="">If Yes, when will your notice period end?*</label>
+          <select name="" id="" formControlName="long_notice">
+            <option value="1 months">1 months</option>
+            <option value="2 months">2 months</option>
+            <option value="3 months">3 months</option>
+            <option value="4 months">4 months</option>
+            <option value="more">more</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="appearin12months">
+        <div class="dd">
+          <label for="type">Are you currently on notice period?*</label>
+          <div class="freshexp1">
+            <div class="fresh">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 0 24 24"
+                width="24px"
+                fill="#1F7A54"
+              >
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+                />
+              </svg>
+              <label for="">Yes</label>
+            </div>
+            <div class="exp">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 0 24 24"
+                width="24px"
+                fill="#1F7A54"
+              >
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+                />
+              </svg>
+              <label for="">No</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="nameofrole">
+          <label for="">If Yes, which role did you apply for?</label>
+          <input type="text" formControlName="role_of_application" />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- {{ profesqualificainfo?.value | json }} -->

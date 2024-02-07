@@ -1,0 +1,111 @@
+$qmed: Quickmed;
+$qbold: Quickbold;
+@font-face {
+  font-family: $qmed;
+  src: url("../../../../../assets/Quicksandfont1/static/Quicksand-Medium.ttf");
+}
+@font-face {
+  font-family: $qbold;
+  src: url("../../../../../assets/Quicksandfont1/static/Quicksand-Bold.ttf");
+}
+.userouter {
+  .navigation {
+    background-color: #3c4e62;
+    .navmain {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 24px;
+      p {
+        font-family: $qmed;
+        font-size: 16px;
+        color: #ffffff;
+      }
+      .colbtn {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        button {
+          width: 90px;
+          height: 28px;
+          font-family: $qmed;
+          font-size: 14px;
+          color: #1f2834;
+          border-radius: 2px;
+          box-shadow: 0px 3px 5px #0000003d;
+          border: 0px;
+        }
+        .cancel {
+          background-color: #3fd28b;
+        }
+        .create {
+          background-color: #3b7b5c;
+        }
+      }
+    }
+  }
+  .content {
+    padding: 24px;
+    background-color: #eeeeee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 24px;
+      background-color: #ffffff;
+      border-radius: 2px;
+      width: 976px;
+      box-sizing: border-box;
+      hr {
+        width: 30%;
+        height: 0.1px;
+      }
+      .fir,
+      .sec,
+      .thi {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        .num {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          background-color: #3fd28b;
+          font-size: 16px;
+          color: #333333;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .cont {
+          font-family: $qmed;
+          font-size: 16px;
+          color: #222222;
+        }
+      }
+    }
+
+    .next {
+      font-family: $qmed;
+      margin: 32px 0px 0 0;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      button {
+        font-size: 14px;
+        border: 0px;
+        height: 28px;
+        width: 90px;
+        background-color: #3fd28b;
+        color: #1f2834;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

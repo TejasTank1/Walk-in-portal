@@ -1,0 +1,312 @@
+$qmed: Quickmed;
+$qbold: Quickbold;
+@font-face {
+  font-family: $qmed;
+  src: url("../../../../assets/Quicksandfont1/static/Quicksand-Medium.ttf");
+}
+@font-face {
+  font-family: $qbold;
+  src: url("../../../../assets/Quicksandfont1/static/Quicksand-Bold.ttf");
+}
+
+.onedrive {
+  margin: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: auto;
+  margin-bottom: 244px;
+
+  font-family: $qmed;
+  .details {
+    box-sizing: border-box;
+    padding: 16px;
+    background-color: #ffffff;
+    width: 1333px;
+    height: auto;
+
+    box-shadow: 0px 4px 6px #0000003d;
+    .title {
+      display: flex;
+      justify-content: space-between;
+      p {
+        font-size: 22px;
+        color: #222222;
+        margin: 0px;
+      }
+      button {
+        width: 73px;
+        height: 28px;
+        box-shadow: 0px 3px 5px #0000003d;
+        border-radius: 2px;
+        background-color: #3fd28b;
+        border: none;
+      }
+    }
+    .datetime {
+      margin-top: 16px;
+      p {
+        color: #666666;
+        font-size: 12px;
+      }
+      .dtime {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 8px;
+        .date {
+          font-size: 14px;
+          color: #222222;
+          padding-right: 8px;
+          border-right: 1px solid #515050;
+          margin: 0px;
+        }
+        .loca {
+          margin: 0px;
+
+          padding-left: 8px;
+        }
+      }
+    }
+    hr {
+      margin-top: 16px;
+    }
+    .jobroles {
+      margin-top: 16px;
+      p {
+        font-size: 12px;
+        color: #666666;
+      }
+      .roles {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 8px;
+        gap: 17px;
+        .role {
+          display: flex;
+          justify-content: flex-start;
+          gap: 8px;
+          align-items: center;
+          .outercircle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            border: 1px solid #222222;
+            padding: 4px;
+          }
+          p {
+            font-size: 14px;
+            color: #1f7a54;
+            margin: 0px;
+          }
+        }
+      }
+    }
+  }
+  .prereq {
+    width: 1333px;
+    background-color: #dbefff;
+    margin-bottom: 34px;
+    .head {
+      height: 40px;
+      display: flex;
+      justify-content: space-between;
+
+      box-shadow: 0px 4px 6px #0000003d;
+      align-items: center;
+      padding-left: 16px;
+      p {
+        font-size: 16px;
+        color: #222222;
+        margin: 0px;
+      }
+      .symbol {
+        padding: 8px 10px;
+        border-left: 1px solid #666666;
+        height: 40px;
+        box-sizing: border-box;
+      }
+    }
+    .details {
+      padding: 16px;
+      font-family: $qmed;
+
+      .general,
+      .examinstru,
+      .minrequire {
+        p {
+          margin: 0px;
+          font-size: 12px;
+          color: #666666;
+        }
+        .ou1 {
+          margin-top: 16px;
+          p {
+            margin: 0px;
+
+            font-size: 14px;
+            color: #222222;
+          }
+        }
+      }
+      .examinstru,
+      .minrequire {
+        margin-top: 16px;
+      }
+      hr {
+        color: #666666;
+      }
+      .process {
+        p {
+          font-size: 12px;
+          color: #666666;
+        }
+        .infoo {
+          margin-top: 16px;
+          p {
+            font-size: 14px;
+            color: #222222;
+          }
+          .round {
+            margin-top: 27px;
+            p {
+              margin: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .times {
+    padding: 16px;
+    width: 1333px;
+    background-color: #ffffff;
+    font-family: $qmed;
+    box-shadow: 0px 4px 6px #0000003d;
+    box-sizing: border-box;
+    p {
+      font-size: 16px;
+      color: #222222;
+    }
+    .time {
+      margin-top: 24px;
+      p {
+        font-size: 12px;
+        color: #666666;
+      }
+      .options {
+        margin-top: 8px;
+        .op1 {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          margin-top: 10px;
+          gap: 8px;
+          p {
+            font-size: 16px;
+            color: #222222;
+          }
+        }
+      }
+    }
+    hr {
+      margin: 16px 0px;
+    }
+    .preference {
+      p {
+        color: #666666;
+        font-size: 12px;
+      }
+      .options {
+        margin-top: 8px;
+        .op1 {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 8px;
+          margin-top: 10px;
+          p {
+            font-size: 16px;
+            color: #222222;
+          }
+        }
+      }
+    }
+    .resumeupload {
+      p {
+        font-size: 16px;
+        color: #1f7a54;
+      }
+    }
+    margin-bottom: 23px;
+  }
+  .applicationroles {
+    margin-bottom: 15px;
+    width: 1333px;
+    .role1 {
+      .head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #dbefff;
+        height: 56px;
+        p {
+          padding-left: 16px;
+        }
+        .sym {
+          padding: 12px 14px 16px 10px;
+          border-left: 1px solid #000000;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+      .details {
+        padding: 16px;
+        .package {
+          .title {
+            font-size: 12px;
+            color: #666666;
+          }
+          .cont {
+            font-size: 14px;
+            color: #222222;
+            margin-top: 16px;
+          }
+        }
+        hr {
+          margin: 16px 0px;
+        }
+        .descript,
+        .requirement {
+          .title {
+            font-size: 12px;
+            color: #666666;
+          }
+          .desc {
+            margin-top: 16px;
+            p {
+              font-size: 16px;
+              margin: 6px 0px;
+              color: #222222;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+p {
+  margin: 0px;
+}
+
+@media screen and (max-width: 1407px) {
+  .details,
+  .prereq,
+  .times,
+  .applicationroles {
+    width: 100% !important;
+  }
+}

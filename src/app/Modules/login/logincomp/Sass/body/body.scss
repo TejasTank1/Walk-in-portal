@@ -45,6 +45,28 @@
         }
       }
       form {
+        .lastsec {
+          p {
+            margin: 0px;
+            text-align: center;
+            font-family: $qmed;
+            a {
+              margin: 0px;
+              text-align: center;
+              font-family: $qmed;
+              text-decoration: none;
+              color: #1f7a54;
+            }
+          }
+          .creac {
+            margin-top: 4px;
+            font-size: 14px;
+            color: #1f7a54;
+          }
+          .notreg {
+            font-size: 12px;
+          }
+        }
         .usermail {
           input {
             font-family: $qmed;
