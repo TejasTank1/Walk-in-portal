@@ -103,6 +103,7 @@ $qbold: Quickbold;
       margin-top: 24px;
       display: flex;
       justify-content: center;
+
       button {
         width: 168px;
         height: 28px;
@@ -112,6 +113,9 @@ $qbold: Quickbold;
         background-color: #3fd28b;
         color: #25313f;
         border: none;
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
     .extrainfo {

@@ -4,7 +4,7 @@
   <div class="details">
     <div class="title">
       <p>Walk In for Multiple Job Roles</p>
-      <button>APPLY</button>
+      <button><a href=""> APPLY</a></button>
     </div>
 
     <div class="datetime">
@@ -65,8 +65,9 @@
   <div class="prereq">
     <div class="head">
       <p>Pre-requisites & Application Process</p>
-      <div class="symbol">
+      <div class="symbol" (click)="toggleprereq()">
         <svg
+          *ngIf="prereq"
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
           version="1.1"
@@ -108,10 +109,53 @@
             />
           </g>
         </svg>
+        <svg
+          *ngIf="!prereq"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          version="1.1"
+          width="12"
+          height="24"
+          viewBox="0 0 256 256"
+          xml:space="preserve"
+        >
+          <defs></defs>
+          <g
+            style="
+              stroke: none;
+              stroke-width: 0;
+              stroke-dasharray: none;
+              stroke-linecap: butt;
+              stroke-linejoin: miter;
+              stroke-miterlimit: 10;
+              fill: none;
+              fill-rule: nonzero;
+              opacity: 1;
+            "
+            transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)"
+          >
+            <path
+              d="M 90 65.75 c 0 0.896 -0.342 1.792 -1.025 2.475 c -1.366 1.367 -3.583 1.367 -4.949 0 L 45 29.2 L 5.975 68.225 c -1.367 1.367 -3.583 1.367 -4.95 0 c -1.366 -1.367 -1.366 -3.583 0 -4.95 l 41.5 -41.5 c 1.366 -1.367 3.583 -1.367 4.949 0 l 41.5 41.5 C 89.658 63.958 90 64.854 90 65.75 z"
+              style="
+                stroke: none;
+                stroke-width: 1;
+                stroke-dasharray: none;
+                stroke-linecap: butt;
+                stroke-linejoin: miter;
+                stroke-miterlimit: 10;
+                fill: #035130;
+                fill-rule: nonzero;
+                opacity: 1;
+              "
+              transform=" matrix(1 0 0 1 0 0) "
+              stroke-linecap="round"
+            />
+          </g>
+        </svg>
       </div>
     </div>
 
-    <div class="details">
+    <div class="details" [hidden]="prereq">
       <div class="general">
         <p>General Instructions :</p>
         <div class="info ou1">
@@ -292,16 +336,17 @@
   </div>
 
   <div class="applicationroles">
-    <div class="role1">
-      <div class="head">
+    <div class="role1" *ngFor="let role of [{}, {}]; let i = index">
+      <div class="head" (click)="toggleatindexforjobroles(i)">
         <p>Instructional Designer</p>
         <div class="sym">
           <svg
+            *ngIf="jobrolesdrop[i]"
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
             version="1.1"
-            width="12"
-            height="24"
+            width="17"
+            height="17"
             viewBox="0 0 256 256"
             xml:space="preserve"
           >
@@ -338,10 +383,54 @@
               />
             </g>
           </svg>
+
+          <svg
+            *ngIf="!jobrolesdrop[i]"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            version="1.1"
+            width="17"
+            height="17"
+            viewBox="0 0 256 256"
+            xml:space="preserve"
+          >
+            <defs></defs>
+            <g
+              style="
+                stroke: none;
+                stroke-width: 0;
+                stroke-dasharray: none;
+                stroke-linecap: butt;
+                stroke-linejoin: miter;
+                stroke-miterlimit: 10;
+                fill: none;
+                fill-rule: nonzero;
+                opacity: 1;
+              "
+              transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)"
+            >
+              <path
+                d="M 90 65.75 c 0 0.896 -0.342 1.792 -1.025 2.475 c -1.366 1.367 -3.583 1.367 -4.949 0 L 45 29.2 L 5.975 68.225 c -1.367 1.367 -3.583 1.367 -4.95 0 c -1.366 -1.367 -1.366 -3.583 0 -4.95 l 41.5 -41.5 c 1.366 -1.367 3.583 -1.367 4.949 0 l 41.5 41.5 C 89.658 63.958 90 64.854 90 65.75 z"
+                style="
+                  stroke: none;
+                  stroke-width: 1;
+                  stroke-dasharray: none;
+                  stroke-linecap: butt;
+                  stroke-linejoin: miter;
+                  stroke-miterlimit: 10;
+                  fill: #035130;
+                  fill-rule: nonzero;
+                  opacity: 1;
+                "
+                transform=" matrix(1 0 0 1 0 0) "
+                stroke-linecap="round"
+              />
+            </g>
+          </svg>
         </div>
       </div>
 
-      <div class="details">
+      <div class="details" [hidden]="jobrolesdrop[i]">
         <div class="package">
           <p class="title">gross compensation package :</p>
           <p class="cont">Rs. 5,00,000 lpa</p>
