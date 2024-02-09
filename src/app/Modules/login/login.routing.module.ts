@@ -4,6 +4,7 @@ import { LogincompComponent } from './logincomp/logincomp.component';
 import { MainComponent } from './Create_account/main/main.component';
 
 const routes: Routes = [
+  {path:'',redirectTo:'login',pathMatch:'full'},
   {path:'login',component:LogincompComponent},
   {path:'createaccount',component:MainComponent}
 ];
