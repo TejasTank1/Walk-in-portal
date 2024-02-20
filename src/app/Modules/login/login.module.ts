@@ -8,6 +8,8 @@ import { PersonalInfoComponent } from './Create_account/personal-info/personal-i
 import { QualificationComponent } from './Create_account/qualification/qualification.component';
 import { ReviewProcessComponent } from './Create_account/review-process/review-process.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginserviceService } from './loginservice.service';
 
 
 
@@ -24,7 +26,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    LoginRoutingModule
+    LoginRoutingModule,
+    HttpClientModule
+  ],
+  providers:[
+    LoginserviceService
   ]
 })
 export class LoginModule { }

@@ -1,25 +1,42 @@
-<form class="body1">
+<form
+  class="body1"
+  *ngIf="personalinfo != undefined && referredjobroles != undefined"
+  [formGroup]="personalinfo"
+>
   <div class="left">
     <div class="fname">
       <label for="First Name">First Name*</label>
-      <input type="text" placeholder="John" />
+      <input type="text" placeholder="John" formControlName="fname" />
     </div>
 
     <div class="lname">
       <label for="last Name">Last Name*</label>
-      <input type="text" placeholder="Watson" />
+      <input type="text" placeholder="Watson" formControlName="lname" />
     </div>
 
     <div class="mail">
       <label for="Email">Email*</label>
-      <input type="text" placeholder="Johnwatson@example.com" />
+      <input
+        type="text"
+        placeholder="Johnwatson@example.com"
+        formControlName="Email"
+      />
+    </div>
+
+    <div class="mail">
+      <label for="Email">Password</label>
+      <input
+        type="text"
+        placeholder=""
+        formControlName="Password"
+      />
     </div>
 
     <div class="phoneno">
       <label for="Email">Phone Number*</label>
       <span>+</span>
       <input class="code" type="number" />
-      <input class="number" type="number" />
+      <input class="number" type="number" formControlName="Phoneno" />
     </div>
 
     <div class="resume">
@@ -42,58 +59,27 @@
 
     <div class="portfoliourl">
       <label for="url">Enter Portfolio URL (if any)</label>
-      <input type="text" name="url" placeholder="www.johndoe.com" />
+      <input
+        type="text"
+        name="url"
+        placeholder="www.johndoe.com"
+        formControlName="Portfolio_url"
+      />
     </div>
 
     <div class="prefferedjob">
       <label for="url">Preferred Job Roles*</label>
       <div class="checks">
-        <div class="check1">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#1F7A54"
-          >
-            <path d="M0 0h24v24H0z" fill="none" />
-            <path
-              d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-            />
-          </svg>
-          <label for="">Instructional Designer</label>
-        </div>
+        <div class="check1" *ngFor="let ele of referredjobroles; let i = index">
+          <input
+            type="checkbox"
+            class="checkdesign"
+            (change)="changecheck($event, i + 1)"
+            [value]="ele.name"
+            [checked]="personalinfo.value.Prefered_Job_roles.includes(i + 1)"
+          />
 
-        <div class="check2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#1F7A54"
-          >
-            <path d="M0 0h24v24H0z" fill="none" />
-            <path
-              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-            />
-          </svg>
-          <label for="">Software Engineer</label>
-        </div>
-
-        <div class="check3">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 0 24 24"
-            width="24px"
-            fill="#1F7A54"
-          >
-            <path d="M0 0h24v24H0z" fill="none" />
-            <path
-              d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-            />
-          </svg>
-          <label for="">Software Quality Engineer</label>
+          <label for="">{{ ele.name }}</label>
         </div>
       </div>
     </div>
@@ -103,22 +89,20 @@
         >If You Are Registering Via A Referral, Please Mention Full Name Of The
         Employee Who Referred You</label
       >
-      <input type="text" name="refferedempname" placeholder="" />
+      <input
+        type="text"
+        name="refferedempname"
+        placeholder=""
+        formControlName="Reffred_emp"
+      />
     </div>
 
     <div class="sendjobnotification">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        height="24px"
-        viewBox="0 0 24 24"
-        width="24px"
-        fill="#1F7A54"
-      >
-        <path d="M0 0h24v24H0z" fill="none" />
-        <path
-          d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-        />
-      </svg>
+      <input
+        type="checkbox"
+        class="checkdesign"
+        formControlName="Sendjobnotification"
+      />
       <p>Send me job related updates via mail</p>
     </div>
   </div>

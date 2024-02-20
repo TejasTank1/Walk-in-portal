@@ -1,6 +1,13 @@
 <div
   class="qualification"
-  *ngIf="qualificationinfo != undefined && profesqualificainfo != undefined"
+  *ngIf="
+    qualificationinfo != undefined &&
+    profesqualificainfo != undefined &&
+    streams != undefined &&
+    qualifications != undefined &&
+    colleges != undefined &&
+    technologies != undefined
+  "
 >
   <div class="edu">
     <div class="head">
@@ -95,7 +102,6 @@
           </g>
         </svg>
       </div>
-      
     </div>
     <form class="body1" [formGroup]="qualificationinfo" [hidden]="qualidrop">
       <div class="aggregateper">
@@ -117,28 +123,18 @@
         <div class="qualification1">
           <label for="">Qualification*</label>
           <select name="" id="" formControlName="qualification">
-            <option [ngValue]="null">Select Country</option>
-            <option
-              *ngFor="
-                let ele of [
-                  'Bachelor in Technology (B.Tech)',
-                  'Bachelor of science (B.sc.)'
-                ]
-              "
-            >
-              {{ ele }}
+            <option [ngValue]="null">Select Qualification</option>
+            <option *ngFor="let ele of qualifications">
+              {{ ele.name }}
             </option>
           </select>
         </div>
         <div class="stream">
           <label for="">Stream*</label>
           <select name="" id="" formControlName="stream">
-            <option
-              *ngFor="
-                let ele of ['Information Technology', 'Computer engineering']
-              "
-            >
-              {{ ele }}
+            <option [ngValue]="null">Select Stream</option>
+            <option *ngFor="let ele of streams">
+              {{ ele.name }}
             </option>
           </select>
         </div>
@@ -148,16 +144,9 @@
         <div class="college">
           <label for="">College*</label>
           <select name="" id="" formControlName="college">
-            <option
-              *ngFor="
-                let ele of [
-                  'Pune Institute of Technology (PIT)',
-                  'Birla Vishvakarma Mahavidyalaya',
-                  'G.H patel'
-                ]
-              "
-            >
-              {{ ele }}
+            <option [ngValue]="null">Select College</option>
+            <option *ngFor="let ele of colleges">
+              {{ ele.name }}
             </option>
           </select>
         </div>
@@ -174,7 +163,7 @@
 
       <div class="coloca">
         <label for="">Where is your college located?*</label>
-        <input type="text" formControlName="clgloca" />
+        <input type="text" formControlName="clglocation" />
       </div>
     </form>
   </div>
@@ -271,39 +260,30 @@
         </svg>
       </div>
     </div>
-
-    <form class="freshexp" [hidden]="profdrop">
+    <form
+      class="freshexp"
+      [hidden]="profdrop"
+      [formGroup]="profesqualificainfo"
+    >
       <div class="dd">
         <label for="type">Applicant Type*</label>
         <div class="freshexp1">
           <div class="fresh">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 0 24 24"
-              width="24px"
-              fill="#1F7A54"
-            >
-              <path d="M0 0h24v24H0z" fill="none" />
-              <path
-                d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
-              />
-            </svg>
+            <input
+              type="radio"
+              value="Fresher"
+              formControlName="applicant_type"
+              class="radiodesign"
+            />
             <label for="">Fresher</label>
           </div>
           <div class="exp">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 0 24 24"
-              width="24px"
-              fill="#1F7A54"
-            >
-              <path d="M0 0h24v24H0z" fill="none" />
-              <path
-                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
-              />
-            </svg>
+            <input
+              type="radio"
+              value="Experienced"
+              formControlName="applicant_type"
+              class="radiodesign"
+            />
             <label for="">Experienced</label>
           </div>
         </div>
@@ -311,49 +291,46 @@
     </form>
 
     <form [formGroup]="profesqualificainfo" class="info" [hidden]="profdrop">
-      <div class="yearofexp">
+      <div
+        class="yearofexp"
+        [hidden]="profesqualificainfo.value.applicant_type == 'Fresher'"
+      >
         <label for="">Years of Experience*</label>
         <input type="number" formControlName="year_of_exp" />
       </div>
 
-      <div class="currentctc">
+      <div
+        class="currentctc"
+        [hidden]="profesqualificainfo.value.applicant_type == 'Fresher'"
+      >
         <label for="">Current CTC* (In Rupees)</label>
         <input type="number" formControlName="currctc" />
       </div>
 
-      <div class="expectedctc">
+      <div
+        class="expectedctc"
+        [hidden]="profesqualificainfo.value.applicant_type == 'Fresher'"
+      >
         <label for="">Expected CTC* (In Rupees)</label>
         <input type="number" formControlName="expectctc" />
       </div>
 
       <div class="techexp">
-        <label for="">Select All The Technologies You Expertise In*</label>
+        <label for="">Select All The Technologies You Familier In*</label>
         <div class="radios">
-          <div
-            class="r1"
-            *ngFor="
-              let ele of [
-                'Javascript',
-                'Angular JS',
-                'React',
-                'Node JS',
-                'Others'
-              ]
-            "
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 0 24 24"
-              width="24px"
-              fill="#1F7A54"
-            >
-              <path d="M0 0h24v24H0z" fill="none" />
-              <path
-                d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-              />
-            </svg>
-            <label for="">{{ ele }}</label>
+          <div class="r1" *ngFor="let ele of technologies; let i = index">
+            <input
+              type="checkbox"
+              class="checkdesign"
+              [value]="ele"
+              (change)="
+                familierexperttechnology($event, 'tech_femilier', ele.techId)
+              "
+              [checked]="
+                profesqualificainfo.value.tech_femilier.includes(i + 1)
+              "
+            />
+            <label for="">{{ ele.techName }}</label>
           </div>
         </div>
         <div class="other">
@@ -362,89 +339,77 @@
         </div>
       </div>
 
-      <div class="techfam">
+      <div
+        class="techfam"
+        [hidden]="profesqualificainfo.value.applicant_type == 'Fresher'"
+      >
         <label for="">Select All The Technologies You Expertise In*</label>
         <div class="radios">
-          <div
-            class="r1"
-            *ngFor="
-              let ele of [
-                'Javascript',
-                'Angular JS',
-                'React',
-                'Node JS',
-                'Others'
-              ]
-            "
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 0 24 24"
-              width="24px"
-              fill="#1F7A54"
-            >
-              <path d="M0 0h24v24H0z" fill="none" />
-              <path
-                d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-              />
-            </svg>
-            <label for="">{{ ele }}</label>
+          <div class="r1" *ngFor="let ele of technologies; let i = index">
+            <input
+              type="checkbox"
+              class="checkdesign"
+              (change)="
+                familierexperttechnology($event, 'tech_expert', ele.techId)
+              "
+              [checked]="profesqualificainfo.value.tech_expert.includes(i + 1)"
+            />
+            <label for="">{{ ele.techName }}</label>
           </div>
         </div>
-        <div class="other">
+        <div
+          class="other"
+          [hidden]="profesqualificainfo.value.applicant_type == 'Fresher'"
+        >
           <label for="">If others, please mention</label>
           <input type="text" />
         </div>
       </div>
 
-      <div class="notoceperiod">
+      <div
+        class="notoceperiod"
+        [hidden]="profesqualificainfo.value.applicant_type == 'Fresher'"
+      >
         <div class="dd">
-          <label for="type"
-            >Have You Appeared For Any Test By Zeus in the past 12
-            months?*</label
-          >
+          <label for="type"> Are you currently on notice period?*</label>
           <div class="freshexp1">
             <div class="fresh">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="24px"
-                viewBox="0 0 24 24"
-                width="24px"
-                fill="#1F7A54"
-              >
-                <path d="M0 0h24v24H0z" fill="none" />
-                <path
-                  d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
-                />
-              </svg>
+              <input
+                type="radio"
+                formControlName="isnotice"
+                class="radiodesign"
+                [value]="true"
+              />
               <label for="">Yes</label>
             </div>
             <div class="exp">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="24px"
-                viewBox="0 0 24 24"
-                width="24px"
-                fill="#1F7A54"
-              >
-                <path d="M0 0h24v24H0z" fill="none" />
-                <path
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
-                />
-              </svg>
+              <input
+                type="radio"
+                formControlName="isnotice"
+                class="radiodesign"
+                [value]="false"
+              />
               <label for="">No</label>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="noticedetail">
-        <div class="end">
+      <div
+        class="noticedetail"
+        [hidden]="profesqualificainfo.value.applicant_type == 'Fresher'"
+      >
+        <div
+          class="end"
+          [hidden]="profesqualificainfo.value.applicant_type == 'Fresher'"
+        >
           <label for="">If Yes, when will your notice period end?*</label>
           <input type="date" formControlName="end_of_notice" />
         </div>
-        <div class="duration">
+        <div
+          class="duration"
+          [hidden]="profesqualificainfo.value.applicant_type == 'Fresher'"
+        >
           <label for="">If Yes, when will your notice period end?*</label>
           <select name="" id="" formControlName="long_notice">
             <option value="1 months">1 months</option>
@@ -458,36 +423,27 @@
 
       <div class="appearin12months">
         <div class="dd">
-          <label for="type">Are you currently on notice period?*</label>
+          <label for="type"
+            >Have You Appeared For Any Test By Zeus in the past 12
+            months?*</label
+          >
           <div class="freshexp1">
             <div class="fresh">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="24px"
-                viewBox="0 0 24 24"
-                width="24px"
-                fill="#1F7A54"
-              >
-                <path d="M0 0h24v24H0z" fill="none" />
-                <path
-                  d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
-                />
-              </svg>
+              <input
+                type="radio"
+                class="radiodesign"
+                [value]="true"
+                formControlName="apperiedin12mo"
+              />
               <label for="">Yes</label>
             </div>
             <div class="exp">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="24px"
-                viewBox="0 0 24 24"
-                width="24px"
-                fill="#1F7A54"
-              >
-                <path d="M0 0h24v24H0z" fill="none" />
-                <path
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
-                />
-              </svg>
+              <input
+                type="radio"
+                class="radiodesign"
+                [value]="false"
+                formControlName="apperiedin12mo"
+              />
               <label for="">No</label>
             </div>
           </div>
@@ -501,4 +457,3 @@
     </form>
   </div>
 </div>
-<!-- {{ profesqualificainfo?.value | json }} -->

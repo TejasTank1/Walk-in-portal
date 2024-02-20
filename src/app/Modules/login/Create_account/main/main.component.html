@@ -1,6 +1,13 @@
 <app-loginnav [what]="'create'"></app-loginnav>
 
-<div class="userouter">
+<div
+  class="userouter"
+  *ngIf="
+    personalinfo != undefined &&
+    eduqualificationinfo != undefined &&
+    profesqualificainfo != undefined
+  "
+>
   <div class="navigation">
     <div class="navmain">
       <svg
@@ -30,7 +37,14 @@
       <p>Create An Account</p>
       <div class="colbtn">
         <button class="cancel">CANCEL</button>
-        <button class="create" disabled>CREATE</button>
+        <button
+          class="create"
+          [style.background-color]="currenttab != 3 ? '#3b7b5c' : '#3fd28b'"
+          [disabled]="currenttab != 3"
+          (click)="Register()"
+        >
+          CREATE
+        </button>
       </div>
     </div>
   </div>
@@ -38,32 +52,58 @@
   <div class="content">
     <div class="head">
       <div class="fir">
-        <p class="num">1</p>
+        <p
+          class="num"
+          [style.background-color]="currenttab >= 1 ? '#3FD28B' : '#757575'"
+        >
+          1
+        </p>
         <p class="cont">Personal Information</p>
       </div>
       <!-- <hr /> -->
       <div class="sec">
-        <p class="num">2</p>
+        <p
+          class="num"
+          [style.background-color]="currenttab >= 2 ? '#3FD28B' : '#757575'"
+        >
+          2
+        </p>
         <p class="cont">Qualifications</p>
       </div>
       <!-- <hr /> -->
       <div class="thi">
-        <p class="num">3</p>
+        <p
+          class="num"
+          [style.background-color]="currenttab >= 3 ? '#3FD28B' : '#757575'"
+        >
+          3
+        </p>
         <p class="cont">Review and Proceed</p>
       </div>
     </div>
 
-    <!-- <app-personal-info></app-personal-info> -->
+    <app-personal-info
+      [personalinfo]="personalinfo"
+      *ngIf="currenttab == 1"
+    ></app-personal-info>
     <app-qualification
-      [qualificationinfo]="qualificationinfo"
+      *ngIf="currenttab == 2"
+      [qualificationinfo]="eduqualificationinfo"
       [profesqualificainfo]="profesqualificainfo"
     ></app-qualification>
 
-    <!-- <app-review-process></app-review-process> -->
+    <app-review-process
+      [personalinfo]="personalinfo"
+      [qualificationinfo]="eduqualificationinfo"
+      [profesqualificainfo]="profesqualificainfo"
+      *ngIf="currenttab == 3"
+    ></app-review-process>
 
     <div class="next">
-      <button>Previous</button>
-      <button>Next</button>
+      <button [disabled]="currenttab == 1" (click)="decrement()">
+        Previous
+      </button>
+      <button [disabled]="currenttab == 3" (click)="increment()">Next</button>
     </div>
   </div>
 </div>

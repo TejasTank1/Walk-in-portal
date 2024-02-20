@@ -1,5 +1,6 @@
 import { Component, Input, SimpleChange, input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { LoginserviceService } from '../../loginservice.service';
 
 @Component({
   selector: 'app-qualification',
@@ -12,11 +13,35 @@ export class QualificationComponent {
 
   qualidrop:boolean=false;
   profdrop:boolean=false;
+  streams:any;
+  colleges:any;
+  qualifications:any;
+  technologies:any;
+  public constructor(private http:LoginserviceService)
+  {}
+
 
     ngOnInit()
     {
+      this.http.getStream().subscribe((res)=>{
+        this.streams=res;
+      });
+
+      this.http.getCollege().subscribe((res)=>{
+        this.colleges=res;
+      })
+
+      this.http.getQualification().subscribe((res)=>{
+        this.qualifications=res;
+      })
+
+      this.http.getTechnology().subscribe((res)=>{
+        this.technologies=res;
+      })
+
       // this.profesqualificainfo?.controls["applicant_type"].setValue("as");
       // console.log(this.profesqualificainfo?.value)
+
     }
 
     togglequal()
@@ -26,6 +51,18 @@ export class QualificationComponent {
     toggleprofes()
     {
       this.profdrop=!this.profdrop;
+    }
+
+    familierexperttechnology(e:any,typeoftech:string,techid:Number)
+    {
+      const technology = this.profesqualificainfo?.get(typeoftech);
+
+      if (e.target.checked) {
+        technology?.value.push(techid);
+      } else {
+        let idx=technology?.value.findIndex((ele: any) => ele ===techid);
+        technology?.value.splice(idx,1);
+      }
     }
 
 }

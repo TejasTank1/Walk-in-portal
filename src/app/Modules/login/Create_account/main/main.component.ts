@@ -7,19 +7,21 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrl: './main.component.scss'
 })
 export class MainComponent {
-  qualificationinfo?:FormGroup;
+  personalinfo?:FormGroup;
+  eduqualificationinfo?:FormGroup;
   profesqualificainfo?:FormGroup;
-
+  currenttab!:any;
   constructor()
   {
-    this.qualificationinfo=new FormGroup({
+    this.currenttab=3;
+    this.eduqualificationinfo=new FormGroup({
       Aggrigate_per:new FormControl(""),
       yearpass:new FormControl(2023),
       qualification:new FormControl(""),
       stream:new FormControl(""),
       college:new FormControl(""),
       otherclg:new FormControl(""),
-      clgloca:new FormControl("")
+      clglocation:new FormControl("")
     });
 
     this.profesqualificainfo=new FormGroup({
@@ -36,6 +38,36 @@ export class MainComponent {
       role_of_application:new FormControl()
     })
 
-    
+    this.personalinfo=new FormGroup({
+      fname:new FormControl(""),
+      lname:new FormControl(""),
+      Email:new FormControl(""),
+      Password:new FormControl(""),
+      Phoneno:new FormControl(""),
+      Resume_url:new FormControl("url"),
+      Portfolio_url:new FormControl("url"),
+      Prefered_Job_roles:new FormControl([]),
+      Reffred_emp:new FormControl(""),
+      Sendjobnotification:new FormControl(false)
+    })
+
+  }
+  increment()
+  {
+    this.currenttab++;
+  }
+  decrement()
+  {
+    this.currenttab--;
+  }
+  Register()
+  {
+    let personal=this.personalinfo?.value;
+    let edu=this.eduqualificationinfo?.value;
+    let prof=this.profesqualificainfo?.value;
+
+    var userreg={
+      Id : personal.Email,
+    }
   }
 }
