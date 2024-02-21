@@ -124,7 +124,7 @@
           <label for="">Qualification*</label>
           <select name="" id="" formControlName="qualification">
             <option [ngValue]="null">Select Qualification</option>
-            <option *ngFor="let ele of qualifications">
+            <option *ngFor="let ele of qualifications" [value]="ele.qualificationId">
               {{ ele.name }}
             </option>
           </select>
@@ -133,7 +133,7 @@
           <label for="">Stream*</label>
           <select name="" id="" formControlName="stream">
             <option [ngValue]="null">Select Stream</option>
-            <option *ngFor="let ele of streams">
+            <option *ngFor="let ele of streams" [value]="ele.streamid">
               {{ ele.name }}
             </option>
           </select>
@@ -145,7 +145,7 @@
           <label for="">College*</label>
           <select name="" id="" formControlName="college">
             <option [ngValue]="null">Select College</option>
-            <option *ngFor="let ele of colleges">
+            <option *ngFor="let ele of colleges" [value]="ele.collegeid">
               {{ ele.name }}
             </option>
           </select>
@@ -321,8 +321,8 @@
           <div class="r1" *ngFor="let ele of technologies; let i = index">
             <input
               type="checkbox"
-              class="checkdesign"
-              [value]="ele"
+              [name]="i"
+              [id]="i"
               (change)="
                 familierexperttechnology($event, 'tech_femilier', ele.techId)
               "
@@ -330,7 +330,8 @@
                 profesqualificainfo.value.tech_femilier.includes(i + 1)
               "
             />
-            <label for="">{{ ele.techName }}</label>
+            <label class="checkbox" [for]="i"></label>
+            <label [for]="i">{{ ele.techName }}</label>
           </div>
         </div>
         <div class="other">
@@ -348,13 +349,15 @@
           <div class="r1" *ngFor="let ele of technologies; let i = index">
             <input
               type="checkbox"
-              class="checkdesign"
+              [name]="i + '2'"
+              [id]="i + '2'"
               (change)="
                 familierexperttechnology($event, 'tech_expert', ele.techId)
               "
               [checked]="profesqualificainfo.value.tech_expert.includes(i + 1)"
             />
-            <label for="">{{ ele.techName }}</label>
+            <label class="checkbox" [for]="i + '2'"></label>
+            <label [for]="i + '2'">{{ ele.techName }}</label>
           </div>
         </div>
         <div

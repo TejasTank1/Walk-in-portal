@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DriveserviceService } from '../driveservice.service';
 
 @Component({
   selector: 'app-all-drives',
@@ -6,7 +7,31 @@ import { Component } from '@angular/core';
   styleUrl: './all-drives.component.scss'
 })
 export class AllDrivesComponent {
-   drives:any[]=[{name:"Walk In for Designer Job Role",startdate:"10-Jul-2021",enddate:"11-Jul-2021",location:"Mumbai",jobroles:["Instructional Designer","Software Engineer","Software Quality Engineer"]},
-   {name:"Walk In for Designer Job Role",startdate:"10-Jul-2021",enddate:"11-Jul-2021",location:"Mumbai",jobroles:["Instructional Designer","Software Engineer","Software Quality Engineer"],extrainfo:"Internship Opportunity for MCA Students"},
-   {name:"Walk In for Designer Job Role",startdate:"10-Jul-2021",enddate:"11-Jul-2021",location:"Mumbai",jobroles:["Instructional Designer","Software Engineer","Software Quality Engineer"]}]
+   drives!:any;
+   jobroleobject!:Map<any,any>;
+   jobroleIdtoname!:Map<any,any>;
+   constructor(private driveser:DriveserviceService){}
+  ngOnInit()
+  {
+    this.jobroleobject=new Map();
+    this.jobroleIdtoname=new Map();
+    this.driveser.getalljobroletable().subscribe((alljobroles:any)=>{
+
+      alljobroles.forEach((jobrole:any) => {
+        this.jobroleIdtoname.set(jobrole.roleId,jobrole);
+        console.log(jobrole);
+      });
+
+    this.driveser.getalldrives().subscribe((drives:any)=>{
+      console.log(drives);
+      this.drives=drives;
+      drives.forEach((ele:any) => {
+        this.driveser.getalljobroleofdrive(ele.driveId).subscribe((ok:any)=>{
+          this.jobroleobject.set(ele.driveId,ok);
+          console.log(ok);
+        });
+      });
+    })
+  })
+  }
 }

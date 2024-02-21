@@ -23,7 +23,14 @@
 
         <div class="remindbox">
           <div class="inn">
-            <input type="checkbox" class="inpchk" formControlName="Check" />
+            <input
+              [name]="'5' + 9"
+              [id]="'5' + 9"
+              type="checkbox"
+              class="inpchk"
+              formControlName="Check"
+            />
+            <label [for]="'5' + 9" class="checkbox"></label>
             <p>Remember Me</p>
           </div>
         </div>
@@ -34,7 +41,7 @@
 
         <div class="lastsec">
           <p class="notreg">Not registered yet?</p>
-          <p class="creac"><a href="">CREATE AN ACCOUNT</a></p>
+          <p class="creac"><a href="createaccount">CREATE AN ACCOUNT</a></p>
         </div>
       </form>
     </div>

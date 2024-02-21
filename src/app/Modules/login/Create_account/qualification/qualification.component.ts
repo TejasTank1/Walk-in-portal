@@ -25,6 +25,7 @@ export class QualificationComponent {
     {
       this.http.getStream().subscribe((res)=>{
         this.streams=res;
+        console.log(res);
       });
 
       this.http.getCollege().subscribe((res)=>{

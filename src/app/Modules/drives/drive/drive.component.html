@@ -1,6 +1,7 @@
 <app-loginnav></app-loginnav>
 
-<div class="onedrive">
+<div class="onedrive" *ngIf="drive != undefined">
+  {{ drive | json }}
   <div class="details">
     <div class="title">
       <p>Walk In for Multiple Job Roles</p>

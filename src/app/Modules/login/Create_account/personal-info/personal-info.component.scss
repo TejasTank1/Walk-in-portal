@@ -113,6 +113,7 @@ $qbold: Quickbold;
     .prefferedjob {
       margin-top: 40px;
       .checks {
+        font-family: $qmed;
         .check1,
         .check2,
         .check3 {
@@ -120,6 +121,9 @@ $qbold: Quickbold;
           justify-content: flex-start;
           gap: 9px;
           margin-top: 18px;
+          span {
+            font-size: 16px;
+          }
         }
         .check1 label,
         .check2 label,

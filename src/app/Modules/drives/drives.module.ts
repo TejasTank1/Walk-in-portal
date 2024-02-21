@@ -5,6 +5,9 @@ import { DrivesRoutingModule } from './drives.routing.module';
 import { LoginnavComponent } from './loginnav/loginnav.component';
 import { DriveComponent } from './drive/drive.component';
 import { AppliedroleComponent } from './appliedrole/appliedrole.component';
+import {  HttpClientModule } from '@angular/common/http';
+import { DriveserviceService } from './driveservice.service';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -16,7 +19,10 @@ import { AppliedroleComponent } from './appliedrole/appliedrole.component';
   ],
   imports: [
     CommonModule,
-    DrivesRoutingModule
-  ]
+    DrivesRoutingModule,
+    HttpClientModule,
+    RouterModule
+  ],
+  providers:[DriveserviceService]
 })
 export class DrivesModule { }

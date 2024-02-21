@@ -2,12 +2,12 @@
 
 <div class="drives" *ngIf="drives != undefined">
   <div class="d1" *ngFor="let ele of drives">
-    <p>{{ ele?.name }}</p>
+    <p>{{ ele?.driveName }}</p>
 
     <div class="dateloca">
       <p>Date & Time :</p>
       <div class="dateloc1">
-        <p class="date">{{ ele.startdate }} to {{ ele.enddate }}</p>
+        <p class="date">{{ ele.driveStartDate }} to {{ ele.driveEndDate }}</p>
         <p class="location">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -31,10 +31,13 @@
     <div class="jobroles">
       <p>Job Roles :</p>
       <div class="role">
-        <div class="role1" *ngFor="let ele1 of ele.jobroles">
+        <div class="role1" *ngFor="let ele1 of jobroleobject.get(ele.driveId)">
           <div class="outercircle">
             <svg
-              *ngIf="ele1 == 'Instructional Designer'"
+              *ngIf="
+                jobroleIdtoname.get(ele1.role_id).name ==
+                'Instructional Designer'
+              "
               xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink"
               width="16"
@@ -49,7 +52,10 @@
               />
             </svg>
             <svg
-              *ngIf="ele1 == 'Software Quality Engineer'"
+              *ngIf="
+                jobroleIdtoname.get(ele1.role_id).name ==
+                'Software Quality Engineer'
+              "
               xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink"
               width="16"
@@ -64,7 +70,9 @@
               />
             </svg>
             <svg
-              *ngIf="ele1 == 'Software Engineer'"
+              *ngIf="
+                jobroleIdtoname.get(ele1.role_id).name == 'Software engineer'
+              "
               xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink"
               width="16"
@@ -79,17 +87,24 @@
               />
             </svg>
           </div>
-          <p>{{ ele1 }}</p>
+          <p>{{ jobroleIdtoname.get(ele1.role_id).name }}</p>
         </div>
       </div>
     </div>
 
-    <div class="extrainfo" *ngIf="ele.extrainfo != undefined">
-      <p>Internship Opportunity for MCA Students</p>
+    <div
+      class="extrainfo"
+      *ngIf="
+        ele.extraInfo != undefined &&
+        ele.extraInfo != '-' &&
+        ele.extraInfo != ''
+      "
+    >
+      <p>{{ ele.extraInfo }}</p>
     </div>
 
     <div class="showmore">
-      <a href="drives/123">
+      <a [routerLink]="ele.driveId">
         <button>VIEW MORE DETAILS</button>
       </a>
     </div>

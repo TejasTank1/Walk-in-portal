@@ -25,11 +25,7 @@
 
     <div class="mail">
       <label for="Email">Password</label>
-      <input
-        type="text"
-        placeholder=""
-        formControlName="Password"
-      />
+      <input type="text" placeholder="" formControlName="Password" />
     </div>
 
     <div class="phoneno">
@@ -74,12 +70,15 @@
           <input
             type="checkbox"
             class="checkdesign"
+            [name]="i"
+            [id]="i"
             (change)="changecheck($event, i + 1)"
             [value]="ele.name"
             [checked]="personalinfo.value.Prefered_Job_roles.includes(i + 1)"
           />
 
-          <label for="">{{ ele.name }}</label>
+          <label class="checkbox" [for]="i"></label>
+          <label [for]="i">{{ ele.name }}</label>
         </div>
       </div>
     </div>
@@ -99,10 +98,13 @@
 
     <div class="sendjobnotification">
       <input
+        [name]="2233"
+        [id]="2233"
         type="checkbox"
         class="checkdesign"
         formControlName="Sendjobnotification"
       />
+      <label [for]="2233" class="checkbox"></label>
       <p>Send me job related updates via mail</p>
     </div>
   </div>
