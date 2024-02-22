@@ -6,13 +6,16 @@ body {
   background-color: #eeeeee;
 }
 
+// for checkbox
+
 input[type="checkbox"] {
   display: none;
   margin-right: 8px;
 }
+
 .checkbox {
   width: 22px;
-  height: 24px; 
+  height: 24px;
   &::before {
     content: "";
     display: inline-block;
@@ -31,6 +34,31 @@ input[type="checkbox"]:checked + .checkbox:before {
 .radiodesign {
   width: 20px;
   height: 24px;
+}
+
+//for radio
+
+input[type="radio"] {
+  display: none;
+  margin-right: 8px;
+}
+
+.radio {
+  width: 22px;
+  height: 24px;
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    background: url("./assets/icons/radio-button-off.svg");
+    text-align: center;
+  }
+}
+
+input[type="radio"]:checked + .radio:before {
+  background: url("./assets/icons/radio-button-on.svg") no-repeat center center;
 }
 
 .r1 {

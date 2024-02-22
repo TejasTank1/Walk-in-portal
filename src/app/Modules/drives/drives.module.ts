@@ -8,6 +8,7 @@ import { AppliedroleComponent } from './appliedrole/appliedrole.component';
 import {  HttpClientModule } from '@angular/common/http';
 import { DriveserviceService } from './driveservice.service';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,7 +22,9 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     DrivesRoutingModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers:[DriveserviceService]
 })

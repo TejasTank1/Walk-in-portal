@@ -239,9 +239,21 @@ $qbold: Quickbold;
       }
     }
     .resumeupload {
-      p {
-        font-size: 16px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 8px;
+      .file {
+        display: none;
+      }
+      label {
+        font-size: 14px;
         color: #1f7a54;
+        svg {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
       }
     }
     margin-bottom: 23px;

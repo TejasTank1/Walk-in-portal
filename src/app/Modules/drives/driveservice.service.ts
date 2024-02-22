@@ -28,4 +28,23 @@ export class DriveserviceService {
     return this.http.get(this.url+"getWalkindrivebyid/"+driveid);
    }
 
+   public getperrequisitebyid(preid:any)
+   {
+    return this.http.get(this.url+"getPrerequisite/"+preid);
+   }
+
+   public gettimeslotsofdrive(driveid:any)
+   {
+    return this.http.get(this.url+"getdrivesavailabletime/"+driveid);
+   }
+
+   public getalltimeslots()
+   {
+    return this.http.get(this.url+"getSlots");
+   }
+
+   public getroundsofdrivebydriveid(driveid:any)
+   {
+    return this.http.get(this.url+"getroundsbyid/"+driveid);
+   }
 }
