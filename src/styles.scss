@@ -12,6 +12,9 @@ input[type="checkbox"] {
   display: none;
   margin-right: 8px;
 }
+input[type="checkbox"]:checked + .checkbox:before {
+  background: url("./assets/icons/checkbox-checked.svg") no-repeat center center;
+}
 
 .checkbox {
   width: 22px;
@@ -25,10 +28,6 @@ input[type="checkbox"] {
     background: url("./assets/icons/checkbox-unchecked.svg");
     text-align: center;
   }
-}
-
-input[type="checkbox"]:checked + .checkbox:before {
-  background: url("./assets/icons/checkbox-checked.svg") no-repeat center center;
 }
 
 .radiodesign {

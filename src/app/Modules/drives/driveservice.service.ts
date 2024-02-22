@@ -8,6 +8,8 @@ export class DriveserviceService {
 
    }
 
+   //get requests for drive.
+
    public getalldrives()
    {
     return this.http.get(this.url+"getWalkindrives");
@@ -46,5 +48,17 @@ export class DriveserviceService {
    public getroundsofdrivebydriveid(driveid:any)
    {
     return this.http.get(this.url+"getroundsbyid/"+driveid);
+   }
+
+   //post requests for drive.
+
+   public applydrive(obj:any)
+   {
+    return this.http.post(this.url+"drive/driveapplied/Add",obj);
+   }
+
+   public applieddrivejobroles(obj:any)
+   {
+    return this.http.post(this.url+"drive/driveappliedjobroles/Add",obj);
    }
 }

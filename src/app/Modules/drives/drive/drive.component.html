@@ -15,7 +15,7 @@
   <div class="details">
     <div class="title">
       <p>{{ drive.driveName }}</p>
-      <button><a href=""> APPLY</a></button>
+      <button><a href="#" (click)="Applytothejob()"> APPLY</a></button>
     </div>
 
     <div class="datetime">
@@ -213,8 +213,7 @@
         </div>
       </div>
     </div>
-  </div>
-  {{ applieddriveform.value | json }}
+  </div> 
   <form [formGroup]="applieddriveform" class="times">
     <p>Time Slots & Preferences</p>
     <div class="time">
@@ -243,7 +242,7 @@
             type="checkbox"
             [name]="'r' + roleid"
             [id]="'r' + roleid"
-            (click)="addintojob($event, roleid)"
+            (change)="addintojob($event, roleid)"
           />
           <label [for]="'r' + roleid" class="checkbox"></label>
           <p>{{ jobroleidtoobjectmapper.get(roleid).name }}</p>
@@ -254,7 +253,7 @@
     <hr />
 
     <div class="resumeupload">
-      <input class="file" type="file" [name]="'9' + 12" [id]="'9' + 12" />
+      <input class="file" type="file" [id]="'9' + 12" formControlName="file" />
       <label [for]="'9' + 12">
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
 import { DriveserviceService } from '../driveservice.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { error } from 'console';
 
 @Component({
   selector: 'app-drive',
@@ -12,6 +13,7 @@ export class DriveComponent {
 
   prereq:boolean=false;
   jobrolesdrop:boolean[];
+  idofuser:any;
 
   //all drive information variables.
   drive!:any;
@@ -25,6 +27,7 @@ export class DriveComponent {
   applieddriveform!:FormGroup;
 
   constructor(private route: ActivatedRoute,private driveser:DriveserviceService){
+    this.idofuser=localStorage.getItem("Id");
     this.jobrolesdrop=[];
     this.jobroleidtoobjectmapper=new Map<any,any>();
     this.slotsidtonamemapper=new Map<any,any>();
@@ -32,7 +35,8 @@ export class DriveComponent {
     this.applieddriveform=new FormGroup({
       Resume:new FormControl("url"),
       slotid:new FormControl(),
-      jobrolesid:new FormControl([])
+      jobrolesid:new FormControl([]),
+      file:new FormControl()
     })
   }
 
@@ -115,13 +119,48 @@ export class DriveComponent {
 
   addintojob(e:any,jobid:any)
   {
-    if(e.target.checked)
+    if(!e.target.checked)
     {
-      let idx=this.applieddriveform.value.jobrolesid.findIndex(jobid);
-    //   this.applieddriveform.value.jobrolesid.slice(idx,1);
+      let idx=this.applieddriveform.value.jobrolesid.findIndex((n:any)=>n==jobid);
+      this.applieddriveform.value.jobrolesid.splice(idx,1);
     }else{
-    //   this.applieddriveform.value.jobrolesid.push(jobid);
+      this.applieddriveform.value.jobrolesid.push(jobid);
     }
+  }
+
+  Applytothejob()
+  {
+    let applied=this.applieddriveform.value;
+    let cdate=new Date().toJSON().slice(0, 10);
+
+    let drivetosend={
+      Resume:applied.Resume,
+      Id:parseInt(this.idofuser),
+      SlotsId:applied.slotid,
+      DriveId:this.drive.driveId,
+      DtCreated:cdate,
+      DtUpdated:cdate
+    }
+
+    this.driveser.applydrive(drivetosend).subscribe((ok)=>{
+      applied.jobrolesid.forEach((ele:any) => {
+        let appliedhasjobrole={
+          Id:parseInt(this.idofuser),
+          Drive_id:this.drive.driveId,
+          Slots_id:applied.slotid,
+          Role_id:ele
+        }
+        this.driveser.applieddrivejobroles(appliedhasjobrole).subscribe((ok)=>{
+          alert("applied");
+        },(error)=>{
+          alert(JSON.stringify(error))
+        })
+      });
+    },(error)=>{
+      alert(JSON.stringify(error))
+    })
+
+
   }
 
 
