@@ -16,11 +16,7 @@ export class MainComponent {
 
   constructor(private logser:LoginserviceService,private router:Router)
   {
-    var islogin=localStorage.getItem("Id");
-    if(islogin!= null)
-    {
-      this.router.navigateByUrl("drives");
-    }
+
     this.currenttab=1;
     this.eduqualificationinfo=new FormGroup({
       Aggrigate_per:new FormControl(""),
