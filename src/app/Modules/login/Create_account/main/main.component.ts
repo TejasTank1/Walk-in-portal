@@ -123,6 +123,7 @@ export class MainComponent {
       }
 
 
+
       this.logser.Addpersonaldetail(personaldb).subscribe((ok)=>{
         console.log("Personal");
         this.logser.Addeducationdetail(eduinfodb).subscribe((ok)=>{

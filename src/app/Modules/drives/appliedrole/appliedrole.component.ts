@@ -25,22 +25,16 @@ export class AppliedroleComponent {
       this.userid=localStorage.getItem("Id");
       this.driveid=this.route.snapshot.paramMap.get("driveid");
       this.slotid=this.route.snapshot.paramMap.get("slotid");
-      console.log(this.slotid)
 
       this.slotid=parseInt(this.slotid);
       this.driveser.getdrivebyid(this.driveid).subscribe((drive:any)=>{
-        console.log(drive);
         this.drivename=drive.driveName;
         this.drivedate=drive.driveStartDate;
-        console.log(this.drivename);
-        console.log(this.drivedate);
       })
 
       this.driveser.gettimeslotbyid(this.slotid).subscribe((name:any)=>{
         this.slotname=name.slotName;
-        console.log(this.slotname);
       })
-
 
     }
 }

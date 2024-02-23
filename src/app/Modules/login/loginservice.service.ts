@@ -1,12 +1,15 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginserviceService {
+  header!:HttpHeaders;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) {
+
+  }
 
   // for login
 
@@ -16,6 +19,7 @@ export class LoginserviceService {
   }
 
   //for registring new user
+
 
   public getallowedjobroles()
   {
@@ -40,6 +44,11 @@ export class LoginserviceService {
   public getTechnology()
   {
     return this.http.get("https://localhost:7210/gettechnologies");
+  }
+
+  public Logingettoken(obj:any)
+  {
+    return this.http.post("https://localhost:7210/api/Login",obj);
   }
 
   public Userregadd(obj:any)

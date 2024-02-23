@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router'
 import { DriveserviceService } from '../driveservice.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { error } from 'console';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-drive',
@@ -15,6 +16,8 @@ export class DriveComponent {
   jobrolesdrop:boolean[];
   idofuser:any;
 
+  applydisabled=false;
+
   //all drive information variables.
   drive!:any;
   jobroleidtoobjectmapper!:Map<any,any>;
@@ -26,8 +29,13 @@ export class DriveComponent {
 
   applieddriveform!:FormGroup;
 
-  constructor(private route: ActivatedRoute,private driveser:DriveserviceService){
+  constructor(private route: ActivatedRoute,private driveser:DriveserviceService,private routefornav:Router){
+
     this.idofuser=localStorage.getItem("Id");
+    if(this.idofuser==null)
+    {
+      this.applydisabled=true;
+    }
     this.jobrolesdrop=[];
     this.jobroleidtoobjectmapper=new Map<any,any>();
     this.slotsidtonamemapper=new Map<any,any>();
@@ -130,6 +138,11 @@ export class DriveComponent {
 
   Applytothejob()
   {
+    if(this.idofuser==null)
+    {
+      this.routefornav.navigateByUrl("/login");
+    }
+    else{
     let applied=this.applieddriveform.value;
     let cdate=new Date().toJSON().slice(0, 10);
 
@@ -150,8 +163,9 @@ export class DriveComponent {
           Slots_id:applied.slotid,
           Role_id:ele
         }
+        alert("applied");
         this.driveser.applieddrivejobroles(appliedhasjobrole).subscribe((ok)=>{
-          alert("applied");
+          this.routefornav.navigateByUrl("drives/"+this.drive.driveId+"/applied/"+applied.slotid);
         },(error)=>{
           alert(JSON.stringify(error))
         })
@@ -159,9 +173,9 @@ export class DriveComponent {
     },(error)=>{
       alert(JSON.stringify(error))
     })
-
-
   }
+}
+
 
 
 }

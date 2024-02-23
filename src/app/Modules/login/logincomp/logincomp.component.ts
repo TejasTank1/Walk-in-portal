@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { error } from 'console';
 import { LoginserviceService } from '../loginservice.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-logincomp',
@@ -39,6 +39,19 @@ export class LogincompComponent {
       this.http.getidofluser(objtosend).subscribe((ok:any)=>{
         console.log(ok);
         localStorage.setItem("Id",ok);
+
+        const sendtogettoken= {
+          email: ele.Email,
+          password:ele.Password,
+          twoFactorCode: "efdffd",
+          twoFactorRecoveryCode: "efdffd"
+        }
+        this.http.Logingettoken(sendtogettoken).subscribe((token:any)=>{
+          alert(JSON.stringify(token));
+          localStorage.setItem("Token",token.token);
+          this.router.navigateByUrl("/drives");
+        })
+
       })
     }
 }

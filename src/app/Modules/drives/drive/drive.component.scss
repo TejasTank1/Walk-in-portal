@@ -30,6 +30,11 @@ $qbold: Quickbold;
     .title {
       display: flex;
       justify-content: space-between;
+      button {
+        &:hover {
+          cursor: pointer;
+        }
+      }
       p {
         font-size: 22px;
         color: #222222;

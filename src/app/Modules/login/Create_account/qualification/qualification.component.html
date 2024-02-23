@@ -124,7 +124,10 @@
           <label for="">Qualification*</label>
           <select name="" id="" formControlName="qualification">
             <option [ngValue]="null">Select Qualification</option>
-            <option *ngFor="let ele of qualifications" [value]="ele.qualificationId">
+            <option
+              *ngFor="let ele of qualifications"
+              [value]="ele.qualificationId"
+            >
               {{ ele.name }}
             </option>
           </select>
@@ -272,10 +275,12 @@
             <input
               type="radio"
               value="Fresher"
-              formControlName="applicant_type"
               class="radiodesign"
+              formControlName="applicant_type"
+              [id]="'p' + 7"
             />
-            <label for="">Fresher</label>
+            <label [for]="'p' + 7" class="radio"></label>
+            <label>Fresher</label>
           </div>
           <div class="exp">
             <input
@@ -283,8 +288,10 @@
               value="Experienced"
               formControlName="applicant_type"
               class="radiodesign"
+              [id]="'p' + 3"
             />
-            <label for="">Experienced</label>
+            <label [for]="'p' + 3" class="radio"></label>
+            <label>Experienced</label>
           </div>
         </div>
       </div>
@@ -382,7 +389,9 @@
                 formControlName="isnotice"
                 class="radiodesign"
                 [value]="true"
+                [id]="'n' + 11"
               />
+              <label [for]="'n' + 11" class="radio"></label>
               <label for="">Yes</label>
             </div>
             <div class="exp">
@@ -391,7 +400,9 @@
                 formControlName="isnotice"
                 class="radiodesign"
                 [value]="false"
+                [id]="'o' + 10"
               />
+              <label [for]="'o' + 10" class="radio"></label>
               <label for="">No</label>
             </div>
           </div>
@@ -437,7 +448,9 @@
                 class="radiodesign"
                 [value]="true"
                 formControlName="apperiedin12mo"
+                [id]="'f' + 30"
               />
+              <label [for]="'f' + 30" class="radio"></label>
               <label for="">Yes</label>
             </div>
             <div class="exp">
@@ -446,7 +459,9 @@
                 class="radiodesign"
                 [value]="false"
                 formControlName="apperiedin12mo"
+                [id]="'f' + 29"
               />
+              <label [for]="'f' + 29" class="radio"></label>
               <label for="">No</label>
             </div>
           </div>
