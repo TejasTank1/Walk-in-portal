@@ -1,6 +1,9 @@
 <app-loginnav></app-loginnav>
 
-<div class="mainapplied">
+<div
+  class="mainapplied"
+  *ngIf="drivename != undefined && slotname != undefined"
+>
   <div class="applieddrive">
     <div class="righticon">
       <svg
@@ -38,7 +41,7 @@
     </div>
 
     <p class="heading">
-      Congratulations ! You have successfully applied for the walk-in
+      Congratulations ! You have successfully applied for the {{ drivename }}
       opportunity
     </p>
 
@@ -47,8 +50,8 @@
     <div class="details">
       <div class="datetime">
         <p class="title">Date & Time of Walk-In :</p>
-        <p class="date">03rd July 2021</p>
-        <p class="time">9:00 AM to 11:00 AM</p>
+        <p class="date">{{ drivedate }}</p>
+        <p class="time">{{ slotname }}</p>
       </div>
 
       <hr />

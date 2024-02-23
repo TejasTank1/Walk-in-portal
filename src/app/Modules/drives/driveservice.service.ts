@@ -50,6 +50,11 @@ export class DriveserviceService {
     return this.http.get(this.url+"getroundsbyid/"+driveid);
    }
 
+   public gettimeslotbyid(slotid:any)
+   {
+      return this.http.get(this.url+"gettimeslotbyid/"+slotid);
+   }
+
    //post requests for drive.
 
    public applydrive(obj:any)

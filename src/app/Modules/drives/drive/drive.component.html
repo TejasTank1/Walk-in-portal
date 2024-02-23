@@ -15,7 +15,19 @@
   <div class="details">
     <div class="title">
       <p>{{ drive.driveName }}</p>
-      <button><a href="#" (click)="Applytothejob()"> APPLY</a></button>
+      <button>
+        <a
+          [href]="
+            'drives/' +
+            drive.driveId +
+            '/applied/' +
+            applieddriveform.value.slotid
+          "
+          (click)="Applytothejob()"
+        >
+          APPLY</a
+        >
+      </button>
     </div>
 
     <div class="datetime">
@@ -213,7 +225,7 @@
         </div>
       </div>
     </div>
-  </div> 
+  </div>
   <form [formGroup]="applieddriveform" class="times">
     <p>Time Slots & Preferences</p>
     <div class="time">

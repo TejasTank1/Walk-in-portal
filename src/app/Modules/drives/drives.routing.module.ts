@@ -4,7 +4,7 @@ import { AllDrivesComponent } from './all-drives/all-drives.component';
 import { DriveComponent } from './drive/drive.component';
 import { AppliedroleComponent } from './appliedrole/appliedrole.component';
 
-const routes: Routes = [{path:'drives',component:AllDrivesComponent,pathMatch:"full"},{path:'drives/:driveid',component:DriveComponent,pathMatch:"full"},{path:'applied/:driveid',component:AppliedroleComponent}];
+const routes: Routes = [{path:'drives',component:AllDrivesComponent,pathMatch:"full"},{path:'drives/:driveid',component:DriveComponent,pathMatch:"full"},{path:'drives/:driveid/applied/:slotid',component:AppliedroleComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
