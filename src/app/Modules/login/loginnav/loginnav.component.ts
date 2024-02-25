@@ -8,6 +8,7 @@ import { Component, Input, input } from '@angular/core';
 export class LoginnavComponent {
    @Input() what?:string;
    constructor()
-   { 
+   {
+    
    }
 }

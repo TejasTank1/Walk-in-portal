@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DriveserviceService } from '../driveservice.service';
+import { JwtauthService } from '../../../Services/jwtauth.service';
 
 @Component({
   selector: 'app-all-drives',
@@ -10,9 +11,11 @@ export class AllDrivesComponent {
    drives!:any;
    jobroleobject!:Map<any,any>;
    jobroleIdtoname!:Map<any,any>;
-   constructor(private driveser:DriveserviceService){}
+   constructor(private driveser:DriveserviceService,private jwtauthser:JwtauthService){}
   ngOnInit()
   {
+    let payload=this.jwtauthser.jwtpayload;
+    alert(JSON.stringify(payload));
     this.jobroleobject=new Map();
     this.jobroleIdtoname=new Map();
     this.driveser.getalljobroletable().subscribe((alljobroles:any)=>{

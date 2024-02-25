@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { error } from 'console';
 import { LoginserviceService } from '../loginservice.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { JwtauthService } from '../../../Services/jwtauth.service';
 
 @Component({
   selector: 'app-logincomp',
@@ -12,7 +13,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class LogincompComponent {
    form!:FormGroup;
-   constructor(private formBuilder: FormBuilder,private http:LoginserviceService,private router:Router)
+   constructor(private formBuilder: FormBuilder,private http:LoginserviceService,private router:Router,private jwtauthser:JwtauthService)
    {
     var islogin=localStorage.getItem("Id");
     if(islogin!=null)
@@ -36,9 +37,9 @@ export class LogincompComponent {
         Email:ele.Email,
         Password:ele.Password
       }
-      this.http.getidofluser(objtosend).subscribe((ok:any)=>{
-        console.log(ok);
-        localStorage.setItem("Id",ok);
+      // this.http.getidofluser(objtosend).subscribe((ok:any)=>{
+      //   console.log(ok);
+      //   localStorage.setItem("Id",ok);
 
         const sendtogettoken= {
           email: ele.Email,
@@ -49,9 +50,9 @@ export class LogincompComponent {
         this.http.Logingettoken(sendtogettoken).subscribe((token:any)=>{
           alert(JSON.stringify(token));
           localStorage.setItem("Token",token.token);
+          this.jwtauthser.dologin();
           this.router.navigateByUrl("/drives");
         })
-
-      })
+ 
     }
 }
